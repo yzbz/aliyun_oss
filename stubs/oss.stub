@@ -15,9 +15,9 @@ class {%className%} extends Controller {
         const bucket = 'sdfs';
 
 
-        public function __construct() {
+       public function __construct() {
             try {
-                $ossClient = new AliyunOSS(self::accessKeyId, self::accessKeySecret, self::endpoint, false,2);
+                $ossClient = new AliyunOSS(self::endpoint, '经典网络', '', self::accessKeyId, self::accessKeySecret);
                 $this->Client = $ossClient;
             } catch (OssException $e) {
                 printf(__FUNCTION__ . "creating OssClient instance: FAILED\n");
