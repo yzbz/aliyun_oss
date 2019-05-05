@@ -14,7 +14,7 @@ class MakeDemo extends Command {
     protected function configure() {
         parent::configure();
         $this->setName('demo:Oss')
-            ->setDescription('Create a new gd demo');
+            ->setDescription('Create a new aliyun-oss demo');
     }
 
     protected function getStub() {
