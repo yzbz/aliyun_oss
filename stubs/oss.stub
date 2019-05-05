@@ -1,0 +1,13 @@
+<?php
+
+namespace {%namespace%};
+
+use think\Controller;
+use think\Request;
+
+//aliyun-oss
+class {%className%} extends Controller {
+          public function main($data = []){
+                 echo "hello world";
+         }
+}

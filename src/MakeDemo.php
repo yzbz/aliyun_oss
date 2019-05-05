@@ -1,5 +1,5 @@
 <?php
-namespace zhangpeng\gd;
+namespace zhangpeng\oss;
 
 use think\App;
 use think\Config;
@@ -13,12 +13,12 @@ class MakeDemo extends Command {
 
     protected function configure() {
         parent::configure();
-        $this->setName('demo:Gd')
+        $this->setName('demo:Oss')
             ->setDescription('Create a new gd demo');
     }
 
     protected function getStub() {
-        return __DIR__ . '/../stubs/gd.stub';
+        return __DIR__ . '/../stubs/oss.stub';
     }
 
     protected function getNamespace($appNamespace, $module) {
@@ -27,7 +27,7 @@ class MakeDemo extends Command {
 
     protected function execute(Input $input, Output $output) {
         // $name = trim($input->getArgument('name'));
-        $name = 'demo/Gd';
+        $name = 'demo/Oss';
         $classname = $this->getClassName($name);
 
         $pathname = $this->getPathName($classname);
