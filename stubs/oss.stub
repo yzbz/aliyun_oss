@@ -4,10 +4,30 @@ namespace {%namespace%};
 
 use think\Controller;
 use think\Request;
+use OSS\OssClient;
+use OSS\Core\OssException;
 
 //aliyun-oss
 class {%className%} extends Controller {
-          public function main($data = []){
-                 echo "hello world";
-         }
+
+    const endpoint = Config::OSS_ENDPOINT;
+    const accessKeyId = Config::OSS_ACCESS_ID;
+    const accessKeySecret = Config::OSS_ACCESS_KEY;
+    const bucket = Config::OSS_TEST_BUCKET;
+
+
+    public function __contruct() {
+        try {
+            $ossClient = new OssClient(self::accessKeyId, self::accessKeySecret, self::endpoint, false);
+            $this->Client = $ossClient;
+        } catch (OssException $e) {
+            printf(__FUNCTION__ . "creating OssClient instance: FAILED\n");
+            printf($e->getMessage() . "\n");
+            die;
+        }
+    }
+    public function main(){
+        $result = $ossClient->uploadFile($bucket, "c.file", __FILE__);
+        var_dump($result);
+    }
 }
